@@ -1,0 +1,40 @@
+import type { FoodItem } from '../types';
+
+export const foodDatabase: FoodItem[] = [
+  { id: '1', name: 'Chicken Breast (100g)', calories: 165, protein: 31, carbs: 0, fat: 3.6 },
+  { id: '2', name: 'Egg (1 large)', calories: 78, protein: 6, carbs: 0.6, fat: 5 },
+  { id: '3', name: 'Rice (1 cup cooked)', calories: 205, protein: 4, carbs: 45, fat: 0.4 },
+  { id: '4', name: 'Oatmeal (1 cup)', calories: 150, protein: 5, carbs: 27, fat: 3 },
+  { id: '5', name: 'Banana (medium)', calories: 105, protein: 1.3, carbs: 27, fat: 0.4 },
+  { id: '6', name: 'Apple (medium)', calories: 95, protein: 0.5, carbs: 25, fat: 0.3 },
+  { id: '7', name: 'Salmon (100g)', calories: 208, protein: 20, carbs: 0, fat: 13 },
+  { id: '8', name: 'Broccoli (1 cup)', calories: 55, protein: 3.7, carbs: 11, fat: 0.6 },
+  { id: '9', name: 'Greek Yogurt (1 cup)', calories: 130, protein: 17, carbs: 8, fat: 4 },
+  { id: '10', name: 'Almonds (1 oz)', calories: 164, protein: 6, carbs: 6, fat: 14 },
+  { id: '11', name: 'Peanut Butter (2 tbsp)', calories: 188, protein: 8, carbs: 6, fat: 16 },
+  { id: '12', name: 'Bread (1 slice)', calories: 80, protein: 3, carbs: 15, fat: 1 },
+  { id: '13', name: 'Milk (1 cup)', calories: 103, protein: 8, carbs: 12, fat: 2.4 },
+  { id: '14', name: 'Orange (medium)', calories: 62, protein: 1.2, carbs: 15, fat: 0.2 },
+  { id: '15', name: 'Sweet Potato (medium)', calories: 103, protein: 2, carbs: 24, fat: 0.1 },
+  { id: '16', name: 'Ground Beef (100g, lean)', calories: 250, protein: 26, carbs: 0, fat: 15 },
+  { id: '17', name: 'Tuna (100g)', calories: 132, protein: 28, carbs: 0, fat: 1 },
+  { id: '18', name: 'Pasta (1 cup cooked)', calories: 220, protein: 8, carbs: 43, fat: 1 },
+  { id: '19', name: 'Avocado (half)', calories: 160, protein: 2, carbs: 9, fat: 15 },
+  { id: '20', name: 'Cottage Cheese (1 cup)', calories: 220, protein: 25, carbs: 8, fat: 10 },
+  { id: '21', name: 'Protein Shake (1 scoop)', calories: 120, protein: 24, carbs: 3, fat: 1 },
+  { id: '22', name: 'Toast (1 slice)', calories: 75, protein: 3, carbs: 13, fat: 1 },
+  { id: '23', name: 'Honey (1 tbsp)', calories: 64, protein: 0, carbs: 17, fat: 0 },
+  { id: '24', name: 'Olive Oil (1 tbsp)', calories: 119, protein: 0, carbs: 0, fat: 14 },
+  { id: '25', name: 'Spinach (1 cup)', calories: 7, protein: 0.9, carbs: 1.1, fat: 0.1 },
+];
+
+export const activityDatabase = [
+  { id: 'running', name: 'Running', caloriesPerHour: 600 },
+  { id: 'walking', name: 'Walking', caloriesPerHour: 250 },
+  { id: 'cycling', name: 'Cycling', caloriesPerHour: 450 },
+  { id: 'swimming', name: 'Swimming', caloriesPerHour: 500 },
+  { id: 'gym', name: 'Weight Training', caloriesPerHour: 300 },
+  { id: 'yoga', name: 'Yoga', caloriesPerHour: 200 },
+  { id: 'hiit', name: 'HIIT', caloriesPerHour: 700 },
+  { id: 'sports', name: 'Sports', caloriesPerHour: 450 },
+];
