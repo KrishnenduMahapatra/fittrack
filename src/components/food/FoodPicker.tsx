@@ -80,7 +80,7 @@ export default function FoodPicker({ isOpen, onClose, onAdd }: FoodPickerProps) 
         <Select
           label="Meal"
           value={meal}
-          onChange={e => setMeal(e.target.value as typeof mealOptions[0]['value'])}
+          onChange={e => setMeal(e.target.value as 'breakfast' | 'lunch' | 'dinner' | 'snack')}
           options={mealOptions}
         />
         
