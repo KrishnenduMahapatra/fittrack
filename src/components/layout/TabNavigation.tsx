@@ -1,34 +1,35 @@
 interface TabNavigationProps {
-  activeTab: string
-  onTabChange: (tab: string) => void
+  activeTab: string;
+  onTabChange: (tab: string) => void;
 }
 
-export default function TabNavigation({ activeTab, onTabChange }: TabNavigationProps) {
-  const tabs = [
-    { id: 'dashboard', label: 'Dashboard' },
-    { id: 'food', label: 'Food' },
-    { id: 'activity', label: 'Activity' },
-    { id: 'water', label: 'Water' },
-    { id: 'profile', label: 'Profile' },
-  ]
+const tabs = [
+  { id: 'dashboard', label: 'Home', icon: '🏠' },
+  { id: 'food', label: 'Food', icon: '🍎' },
+  { id: 'activity', label: 'Activity', icon: '🏃' },
+  { id: 'water', label: 'Water', icon: '💧' },
+  { id: 'profile', label: 'Profile', icon: '👤' },
+];
 
+export default function TabNavigation({ activeTab, onTabChange }: TabNavigationProps) {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-surface border-t border-gray-700">
-      <div className="max-w-2xl mx-auto flex justify-around">
-        {tabs.map((tab) => (
+    <nav className="fixed bottom-0 left-0 right-0 bg-surface/95 backdrop-blur border-t border-background z-40">
+      <div className="max-w-2xl mx-auto flex justify-around px-2 py-2">
+        {tabs.map(tab => (
           <button
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
-            className={`flex-1 py-3 text-center ${
+            className={`flex flex-col items-center gap-0.5 px-4 py-2 rounded-lg transition-all ${
               activeTab === tab.id
-                ? 'text-primary border-t-2 border-primary'
-                : 'text-muted'
+                ? 'text-primary'
+                : 'text-muted hover:text-white'
             }`}
           >
-            {tab.label}
+            <span className="text-xl">{tab.icon}</span>
+            <span className="text-xs">{tab.label}</span>
           </button>
         ))}
       </div>
     </nav>
-  )
+  );
 }
