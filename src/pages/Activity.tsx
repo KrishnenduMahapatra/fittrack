@@ -3,13 +3,14 @@ import Button from '../components/common/Button';
 import Card from '../components/common/Card';
 import ActivityPicker from '../components/activity/ActivityPicker';
 import ActivityList from '../components/activity/ActivityList';
-import { useFitTrack } from '../hooks/useFitTrack';
+import { useFitTrackContext } from '../context/FitTrackContext';
 
 export default function Activity() {
   const [showPicker, setShowPicker] = useState(false);
-  const { todayData, addActivity, removeActivity, getTodayBurned } = useFitTrack();
+  const { addActivity, removeActivity, getTodayBurned, getTodayData } = useFitTrackContext();
 
   const burned = getTodayBurned();
+  const todayActivities = getTodayData().activities || [];
 
   return (
     <div className="space-y-6 pb-20">
@@ -27,7 +28,7 @@ export default function Activity() {
         + Add Activity
       </Button>
       
-      <ActivityList activities={todayData.activities} onDelete={removeActivity} />
+      <ActivityList activities={todayActivities} onDelete={removeActivity} />
       
       <ActivityPicker
         isOpen={showPicker}

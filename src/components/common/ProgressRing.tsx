@@ -20,7 +20,7 @@ export default function ProgressRing({
   const offset = circumference - (Math.min(progress, 100) / 100) * circumference;
 
   return (
-    <div className="relative inline-flex items-center justify-center">
+    <div className="relative inline-flex items-center justify-center animate-scale-in">
       <svg width={size} height={size} className="transform -rotate-90">
         <circle
           cx={size / 2}
@@ -40,7 +40,10 @@ export default function ProgressRing({
           strokeDasharray={circumference}
           strokeDashoffset={offset}
           strokeLinecap="round"
-          className="transition-all duration-500"
+          className="transition-all duration-700 ease-out"
+          style={{
+            filter: `drop-shadow(0 0 6px ${color}40)`,
+          }}
         />
       </svg>
       <div className="absolute flex flex-col items-center justify-center">

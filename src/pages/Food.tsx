@@ -3,24 +3,33 @@ import Button from '../components/common/Button';
 import Card from '../components/common/Card';
 import FoodList from '../components/food/FoodList';
 import FoodPicker from '../components/food/FoodPicker';
-import { useFitTrack } from '../hooks/useFitTrack';
+import { useFitTrackContext } from '../context/FitTrackContext';
 
 export default function Food() {
   const [showPicker, setShowPicker] = useState(false);
   const { 
     profile, 
-    todayData, 
     addFood, 
     removeFood, 
     getTodayCalories, 
     getTodayProtein, 
     getTodayCarbs, 
     getTodayFat,
-  } = useFitTrack();
+    getTodayData,
+  } = useFitTrackContext();
+
+  const handleAddFood = (food: Omit<import('../types').FoodEntry, 'id' | 'timestamp'> | Omit<import('../types').FoodEntry, 'id' | 'timestamp'>[]) => {
+    if (Array.isArray(food)) {
+      food.forEach(f => addFood(f));
+    } else {
+      addFood(food);
+    }
+  };
 
   const consumed = getTodayCalories();
   const target = profile?.tdee || 2000;
   const remaining = target - consumed;
+  const todayFoods = getTodayData().foods || [];
 
   return (
     <div className="space-y-6 pb-20">
@@ -59,12 +68,12 @@ export default function Food() {
         + Add Food
       </Button>
       
-      <FoodList foods={todayData.foods} onDelete={removeFood} />
+      <FoodList foods={todayFoods} onDelete={removeFood} />
       
       <FoodPicker
         isOpen={showPicker}
         onClose={() => setShowPicker(false)}
-        onAdd={addFood}
+        onAdd={handleAddFood}
       />
     </div>
   );

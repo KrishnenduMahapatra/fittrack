@@ -21,7 +21,7 @@ export default function ProfileForm({ profile, onSave, onDelete }: ProfileFormPr
   const [showDelete, setShowDelete] = useState(false);
 
   useEffect(() => {
-    if (profile) {
+    if (profile && profile.age > 0) {
       setName(profile.name);
       setAge(profile.age.toString());
       setGender(profile.gender);
@@ -123,7 +123,7 @@ export default function ProfileForm({ profile, onSave, onDelete }: ProfileFormPr
           {profile ? 'Update Profile' : 'Save Profile'}
         </Button>
         
-        {profile && (
+        {profile && profile.age > 0 ? (
           <Button
             type="button"
             variant="danger"
@@ -132,7 +132,7 @@ export default function ProfileForm({ profile, onSave, onDelete }: ProfileFormPr
           >
             Delete Profile
           </Button>
-        )}
+        ) : null}
       </div>
       
       {showDelete && (
@@ -144,7 +144,12 @@ export default function ProfileForm({ profile, onSave, onDelete }: ProfileFormPr
               <Button variant="secondary" className="flex-1" onClick={() => setShowDelete(false)}>
                 Cancel
               </Button>
-              <Button variant="danger" className="flex-1" onClick={onDelete}>
+              <Button variant="danger" className="flex-1" onClick={() => {
+                if (onDelete) {
+                  onDelete();
+                  setShowDelete(false);
+                }
+              }}>
                 Delete
               </Button>
             </div>

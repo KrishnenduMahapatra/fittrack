@@ -12,7 +12,7 @@ export default function Button({
   children,
   ...props 
 }: ButtonProps) {
-  const baseStyles = 'font-medium rounded-lg transition-all duration-200 flex items-center justify-center gap-2';
+  const baseStyles = 'font-medium rounded-lg transition-all duration-200 flex items-center justify-center gap-2 active:scale-95 hover:scale-[1.02]';
   const variants = {
     primary: 'bg-primary hover:bg-primary/90 text-white',
     secondary: 'bg-surface border border-muted hover:bg-muted/20 text-white',
@@ -27,7 +27,7 @@ export default function Button({
   
   return (
     <button 
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className} disabled:opacity50 disabled:cursor-not-allowed`}
+      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className} disabled:opacity50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:active:scale-100`}
       {...props}
     >
       {children}
